@@ -10,11 +10,11 @@
    <datasource jndi-name="java:jboss/datasources/insuranceDS"
       pool-name="insurance" enabled="true"
       use-java-context="true">
-      <connection-url>jdbc:h2:mem:insurance;DB_CLOSE_DELAY=-1</connection-url>
-      <driver>h2</driver>
+      <connection-url>jdbc:mysql://localhost:3306/insurance</connection-url>
+      <driver>mysql-connector-java-5.1.22.jar</driver>
       <security>
-         <user-name>sa</user-name>
-         <password>sa</password>
+         <user-name>liferay</user-name>
+         <password>liferay</password>
       </security>
    </datasource>
 </datasources>

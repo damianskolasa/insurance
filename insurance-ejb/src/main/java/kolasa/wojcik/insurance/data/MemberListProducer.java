@@ -42,6 +42,7 @@ public class MemberListProducer {
       // Swap criteria statements if you would like to try out type-safe criteria queries, a new
       // feature in JPA 2.0
       // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
+      
       criteria.select(member).orderBy(cb.asc(member.get("name")));
       members = em.createQuery(criteria).getResultList();
    }
