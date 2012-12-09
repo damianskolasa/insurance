@@ -22,7 +22,7 @@ public class Product {
 	private Date validFrom;
 	@Temporal(TemporalType.TIME)
 	private Date validTo;
-	private Price price;
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,13 +59,5 @@ public class Product {
 	public void setValidTo(Date validTo) {
 		this.validTo = validTo;
 	}
-	public Price getPrice() {
-		return price;
-	}
-	public void setPrice(Price price) {
-		this.price = price;
-	}
-	
-	
 	
 }

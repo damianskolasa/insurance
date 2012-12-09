@@ -31,6 +31,12 @@
 			<version>3.4.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>flick</artifactId>
+			<version>1.0.8</version>
+		</dependency>
+
 		<!-- Dependency on the EJB module so we can use it's services if needed -->
 		<dependency>
 			<groupId>kolasa.wojcik</groupId>

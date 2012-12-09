@@ -1,45 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-   <title>Java EE 6 Starter Application</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <h:outputStylesheet name="css/screen.css" />
+	<title>Insurance</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
-   <div id="container">
-      <div class="dualbrand">
-         <img src="resources/gfx/dualbrand_logo.png" />
-         <p:spinner />
-      </div>
-      <div id="content">
-         <ui:insert name="content">
-                    [Template content will be inserted here]
-         </ui:insert>
-      </div>
-      <div id="aside">
-         <p>Learn more about JBoss Enterprise Application Platform 6.</p>
-         <ul>
-            <li><a
-               href="http://red.ht/jbeap-6-docs">Documentation</a></li>
-            <li><a href="http://red.ht/jbeap-6">Product Information</a></li>
-         </ul>
-         <p>Learn more about JBoss AS 7.</p>
-         <ul>
-            <li><a
-               href="https://docs.jboss.org/author/display/AS7/Getting+Started+Developing+Applications+Guide">Getting Started Developing Applications Guide</a></li>
-            <li><a href="http://jboss.org/jbossas">Community Project Information</a></li>
-         </ul>            
-      </div>
-      <div id="footer">
-         <p>
-            This project was generated from a Maven archetype from
-            JBoss.<br />
-         </p>
-      </div>
-   </div>
+
+	<p:layout fullPage="true">
+
+		<p:layoutUnit position="north" size="100" header="Top"
+			resizable="false" closable="false" collapsible="fale">
+			<h:outputText value="Top unit content." />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="100" header="Bottom"
+			resizable="false" closable="false" collapsible="false">
+			<h:outputText value="South unit content." />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="200" header="Left"
+			resizable="false" closable="false" collapsible="false">
+			<h:outputText value="west unit content." />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="east" size="200" header="Right"
+			resizable="false" closable="false" collapsible="false">
+			<h:outputText value="Right unit content." />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<h:form>  
+                This fullPage layout consists of five different layoutUnits which are resizable and closable by default.  
+      
+            </h:form>
+		</p:layoutUnit>
+
+	</p:layout>
 </h:body>
 </html>

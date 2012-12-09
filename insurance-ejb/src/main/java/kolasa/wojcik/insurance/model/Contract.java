@@ -27,6 +27,9 @@ public class Contract {
 	@OneToMany
 	@JoinTable(name = "CONTRACT_PRODUCT")
 	private List<Product> products;
+	
+	private Price price;
+	
 
 	public Contract() {
 		products = new ArrayList<Product>();
@@ -72,4 +75,12 @@ public class Contract {
 		this.products.add(product);
 	}
 
+	public Price getPrice() {
+		return price;
+	}
+
+	public void setPrice(Price price) {
+		this.price = price;
+	}
+	
 }
