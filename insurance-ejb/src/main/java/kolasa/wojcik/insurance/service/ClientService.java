@@ -31,14 +31,14 @@ public class ClientService {
 	}
 
 	public Client findClientById(Long clientId) {
-		return (Client) em.createQuery("Select c from Client c where c.id = ?")
-				.setParameter(1, clientId).getSingleResult();
+		return (Client) em.createQuery("Select c from Client c where c.id = :id")
+				.setParameter("id", clientId).getSingleResult();
 	}
 
 	public Client findClientByPESEL(String pesel) {
 		return (Client) em
-				.createQuery("Select c from Client c where c.pesel = ?")
-				.setParameter(1, pesel).getSingleResult();
+				.createQuery("Select c from Client c where c.pesel = :pesel")
+				.setParameter("pesel", pesel).getSingleResult();
 	}
 
 }

@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -19,6 +21,8 @@ public class Client {
 
 	private String firstName;
 	private String lastName;
+	
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	@Temporal(TemporalType.DATE)
 	private Date birthDate;
@@ -31,9 +35,6 @@ public class Client {
 
 	@OneToMany
 	private List<Address> addresses;
-
-	@OneToMany
-	private List<HealthCareData> healthRecords;
 
 	public Long getId() {
 		return id;
@@ -114,13 +115,4 @@ public class Client {
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
-
-	public List<HealthCareData> getHealthRecords() {
-		return healthRecords;
-	}
-
-	public void setHealthRecords(List<HealthCareData> healthRecords) {
-		this.healthRecords = healthRecords;
-	}
-
 }

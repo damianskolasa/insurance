@@ -13,8 +13,8 @@ public class AddressService {
 	private EntityManager em;
 	
 	public Address findAddressById(Long addressId) {
-		
-		return null;
+		return (Address) em.createQuery("Select a from Address a where a.id = :id")
+				.setParameter("id", addressId).getSingleResult();
 	}
 	
 	public void addAddress(Address address) {

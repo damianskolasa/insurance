@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
@@ -22,6 +24,8 @@ public class Contract {
 	private String contractNumber;
 	@Temporal(TemporalType.DATE)
 	private Date validFrom;
+	
+	@Enumerated(EnumType.STRING)
 	private ValidyPeriod validityPeriod;
 
 	@OneToMany
@@ -29,6 +33,8 @@ public class Contract {
 	private List<Product> products;
 	
 	private Price price;
+	
+	private HealthCareData healthCareData;
 	
 
 	public Contract() {
@@ -81,6 +87,14 @@ public class Contract {
 
 	public void setPrice(Price price) {
 		this.price = price;
+	}
+
+	public HealthCareData getHealthCareData() {
+		return healthCareData;
+	}
+
+	public void setHealthCareData(HealthCareData healthCareData) {
+		this.healthCareData = healthCareData;
 	}
 	
 }
