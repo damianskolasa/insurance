@@ -1,8 +1,10 @@
 package kolasa.wojcik.insurance.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.crypto.SecretKey;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -13,7 +15,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Client {
+public class Client implements Serializable {
+
+	private static final long serialVersionUID = -5314198086709760159L;
 
 	@Id
 	@GeneratedValue

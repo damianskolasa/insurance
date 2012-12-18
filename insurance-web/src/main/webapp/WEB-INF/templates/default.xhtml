@@ -7,6 +7,9 @@
 <h:head>
 	<title>Insurance</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link
+	href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
+	rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
 
@@ -14,6 +17,7 @@
 
 		<p:layoutUnit position="north" size="100" header="Top"
 			resizable="false" closable="false" collapsible="fale">
+
 			<h:outputText value="Top unit content." />
 		</p:layoutUnit>
 
@@ -33,10 +37,8 @@
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">
-			<h:form>  
-                This fullPage layout consists of five different layoutUnits which are resizable and closable by default.  
-      
-            </h:form>
+			<ui:insert name="content">
+			</ui:insert>
 		</p:layoutUnit>
 
 	</p:layout>

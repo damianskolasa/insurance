@@ -1,5 +1,6 @@
 package kolasa.wojcik.insurance.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,12 +11,15 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Contract {
+public class Contract implements Serializable {
+
+	private static final long serialVersionUID = 6786776534895293003L;
 
 	@Id
 	@GeneratedValue
@@ -34,6 +38,7 @@ public class Contract {
 	
 	private Price price;
 	
+	@ManyToOne
 	private HealthCareData healthCareData;
 	
 

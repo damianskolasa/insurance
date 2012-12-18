@@ -1,0 +1,17 @@
+.ui-growl {   
+    position:fixed;
+    top: 40%;
+    left: 37%;
+    width: 300px;
+    height: 100px;
+    z-index:9999; 
+}
+
+.ui-growl-title {
+    font: 16px "Lucida Console", Monaco, monospace;
+    text-align: center;
+}
+.ui-growl-message p {
+    font: 14px "Lucida Console", Monaco, monospace;
+    letter-spacing: -1px;
+}

@@ -1,5 +1,6 @@
 package kolasa.wojcik.insurance.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,8 +10,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 	
+	private static final long serialVersionUID = 8386254278959408954L;
+
 	@Id
 	@GeneratedValue
 	private Long id;

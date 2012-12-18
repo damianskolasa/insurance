@@ -1,17 +1,9 @@
 package kolasa.wojcik.insurance.rest;
 
-import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-
-import kolasa.wojcik.insurance.model.Member;
 
 /**
  * JAX-RS Example
@@ -24,7 +16,7 @@ public class MemberResourceRESTService {
    @Inject
    private EntityManager em;
 
-   @GET
+  /* @GET
    @Produces({MediaType.APPLICATION_JSON})
    public List<Member> listAllMembers() {
       // Use @SupressWarnings to force IDE to ignore warnings about "genericizing" the results of
@@ -43,5 +35,5 @@ public class MemberResourceRESTService {
    @Produces({MediaType.APPLICATION_JSON})
    public Member lookupMemberById(@PathParam("id") long id) {
       return em.find(Member.class, id);
-   }
+   }*/
 }

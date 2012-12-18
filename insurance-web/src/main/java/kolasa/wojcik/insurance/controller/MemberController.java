@@ -1,19 +1,8 @@
 package kolasa.wojcik.insurance.controller;
 
-import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
-import javax.enterprise.event.Event;
 import javax.enterprise.inject.Model;
-import javax.enterprise.inject.Produces;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
-import javax.persistence.EntityManager;
-
-import kolasa.wojcik.insurance.model.Member;
-import kolasa.wojcik.insurance.service.MemberRegistration;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
@@ -25,7 +14,7 @@ public class MemberController {
    @Inject
    private FacesContext facesContext;
 
-   @Inject
+   /*@Inject
    private MemberRegistration memberRegistration;
 
    private Member newMember;
@@ -45,5 +34,5 @@ public class MemberController {
    @PostConstruct
    public void initNewMember() {
       newMember = new Member();
-   }
+   }*/
 }

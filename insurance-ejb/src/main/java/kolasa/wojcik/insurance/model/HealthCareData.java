@@ -1,5 +1,6 @@
 package kolasa.wojcik.insurance.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,11 +10,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class HealthCareData {
+public class HealthCareData implements Serializable {
 
+	private static final long serialVersionUID = -4250543534557893576L;
+	
 	@Id
 	@GeneratedValue
 	private Long id;
+	private String firstName;
+	private String lastName;
+	private String pesel;
 
 	private Boolean heartDisieases;
 	private Boolean diabetes;
@@ -108,6 +114,30 @@ public class HealthCareData {
 
 	public void setLongTermTreatments(Boolean longTermTreatments) {
 		this.longTermTreatments = longTermTreatments;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPesel() {
+		return pesel;
+	}
+
+	public void setPesel(String pesel) {
+		this.pesel = pesel;
 	}
 
 }
