@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+
+			<p:growl id="growl" sticky="true" showDetail="true" />
+
+			<p:wizard widgetVar="wiz"
+				flowListener="#{contractWizardController.onFlowProcess}">
+
+				<p:tab id="pesel" title="Podstawowe informacje">
+					
+				</p:tab>
+
+				<p:tab id="basic" title="Podstawowe informacje">
+
+					
+				</p:tab>
+
+				<p:tab id="address" title="Address">
+					<p:panel header="Adress Details">
+
+						<h:messages errorClass="error" />
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+
+							
+
+
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="profile" title="Profil">
+					
+				</p:tab>
+
+				<p:tab id="health" title="Zdrowie">
+					<p:panel header="Contact Information">
+
+						<h:messages errorClass="error" />
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+
+							
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="product" title="Produkt">
+
+					
+
+				</p:tab>
+
+				<p:tab id="confirm" title="Confirmation">
+					<p:panel header="Confirmation">
+
+						<h:panelGrid id="confirmation" columns="6">
+
+							<h:outputText value="Lastname: " />
+
+							<h:outputText value="Age: " />
+
+							<h:outputText value="Street: " />
+
+							<h:outputText value="Postal Code: " />
+
+							<h:outputText value="City: " />
+
+							<h:outputText value="Email: " />
+
+							<h:outputText value="Phone " />
+
+							<h:outputText value="Info: " />
+
+							<h:outputText />
+							<h:outputText />
+						</h:panelGrid>
+
+						<p:commandButton value="Zapisz]" update="growl"
+							action="#{contractWizardController.save}" />
+
+					</p:panel>
+				</p:tab>
+
+			</p:wizard>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

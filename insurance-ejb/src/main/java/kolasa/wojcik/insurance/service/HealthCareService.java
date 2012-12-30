@@ -16,13 +16,12 @@ public class HealthCareService {
 	@Inject
 	private EntityManager em;
 
-	@SuppressWarnings("unchecked")
 	public HealthCareData clientHealthCareInformations(Client client)
 			throws NoHealthCareDataException {
 
 		List<HealthCareData> healthCareDatas = em
 				.createQuery(
-						"select hcd from HealthCareData hcd where hcd.firstName = :firstName and hcd.lastName = :lastName and hcd.pesel = :pesel")
+						"select hcd from HealthCareData hcd where hcd.firstName = :firstName and hcd.lastName = :lastName and hcd.pesel = :pesel", HealthCareData.class)
 				.setParameter("firstName", client.getFirstName())
 				.setParameter("lastName", client.getLastName())
 				.setParameter("pesel", client.getPesel()).getResultList();

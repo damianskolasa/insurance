@@ -2,15 +2,13 @@ package kolasa.wojcik.insurance.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.crypto.SecretKey;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,8 +35,14 @@ public class Client implements Serializable {
 	private String pesel;
 	private String telephone;
 
-	@OneToMany
-	private List<Address> addresses;
+	@OneToOne
+	private Address address;
+	
+	@OneToOne
+	private ClientProfile clientProfile;
+	
+	public Client() {
+	}
 
 	public Long getId() {
 		return id;
@@ -112,11 +116,25 @@ public class Client implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public List<Address> getAddresses() {
-		return addresses;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
+	public void setAddresses(Address address) {
+		this.address = address;
 	}
+
+	public ClientProfile getClientProfile() {
+		return clientProfile;
+	}
+
+	public void setClientProfile(ClientProfile clientProfile) {
+		this.clientProfile = clientProfile;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 }

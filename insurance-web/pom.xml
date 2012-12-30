@@ -21,9 +21,29 @@
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
+
+		<repository>
+			<id>jboss-public-repository</id>
+			<name>JBoss Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.primefaces</groupId>
@@ -35,6 +55,12 @@
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>flick</artifactId>
 			<version>1.0.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 
 		<!-- Dependency on the EJB module so we can use it's services if needed -->

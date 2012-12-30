@@ -16,50 +16,59 @@
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
 				<h:outputText value="Historia chorób serca ?" />
-				<p:selectBooleanButton value="#{healthCareData.heartDisieases}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close">
-				</p:selectBooleanButton>
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.heartDisieases}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close">
+							</p:selectBooleanButton>
 
-				<h:outputText value="Cukrzyca ?" />
-				<p:selectBooleanButton value="#{healthCareData.diabetes}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close" />
+							<h:outputText value="Cukrzyca ?" />
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.diabetes}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close" />
 
-				<h:outputText value="Historia chorób umysłowych w rodzinie ?" />
-				<p:selectBooleanButton value="#{healthCareData.mentalIllness}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close" />
+							<h:outputText value="Historia chorób umysłowych w rodzinie ?" />
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.mentalIllness}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close" />
 
-				<h:outputText value="Historia nagłych zgonów w rodzinie ?" />
-				<p:selectBooleanButton value="#{healthCareData.suddenDeaths}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close" />
+							<h:outputText value="Historia nagłych zgonów w rodzinie ?" />
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.suddenDeaths}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close" />
 
-				<h:outputText value="Nadwaga ?" />
-				<p:selectBooleanButton value="#{healthCareData.overweight}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close" />
+							<h:outputText value="Nadwaga ?" />
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.overweight}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close" />
 
-				<h:outputText value="Nadciśnienie ?" />
-				<p:selectBooleanButton value="#{healthCareData.hypertension}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close" />
+							<h:outputText value="Nadciśnienie ?" />
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.hypertension}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close" />
 
-				<h:outputText value="Choroby przewlekłe ?" />
-				<p:selectBooleanButton value="#{healthCareData.longTermTreatments}"
-					onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
-					offIcon="ui-icon-close" />
+							<h:outputText value="Choroby przewlekłe ?" />
+							<p:selectBooleanButton
+								value="#{contractWizardController.healthCareData.longTermTreatments}"
+								onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+								offIcon="ui-icon-close" />
 
-				<h:outputText value="Data ostatniej hospitalizacji: " />
-				<p:calendar value="#{healthCareData.lastHospitalisation}" />
-				
-				<h:outputText value="Data ostatniej operacji: " />
-				<p:calendar value="#{healthCareData.lastSurgery}" />
+							<h:outputText value="Data ostatniej hospitalizacji: " />
+							<p:calendar
+								value="#{contractWizardController.healthCareData.lastHospitalisation}" />
+
+							<h:outputText value="Data ostatniej operacji: " />
+							<p:calendar
+								value="#{contractWizardController.healthCareData.lastSurgery}" />
 
 			</h:panelGrid>
-			<p:commandButton value="Zapisz"
-				action="#{clientHealthInformationController.save}" update="msg">
+			<p:commandButton value="Dalej"
+				action="#{contractWizardController.submitHealthCareInformation}" >
 			</p:commandButton>
 		</h:form>
 	</ui:define>

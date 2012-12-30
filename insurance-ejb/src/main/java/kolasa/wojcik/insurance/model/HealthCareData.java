@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 public class HealthCareData implements Serializable {
 
 	private static final long serialVersionUID = -4250543534557893576L;
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;

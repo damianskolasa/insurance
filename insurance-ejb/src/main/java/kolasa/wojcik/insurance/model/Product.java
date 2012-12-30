@@ -1,13 +1,10 @@
 package kolasa.wojcik.insurance.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Product implements Serializable {
@@ -21,10 +18,6 @@ public class Product implements Serializable {
 	private String name;
 	private String code;
 	private String description;
-	@Temporal(TemporalType.TIME)
-	private Date validFrom;
-	@Temporal(TemporalType.TIME)
-	private Date validTo;
 	
 	public Long getId() {
 		return id;
@@ -49,18 +42,6 @@ public class Product implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public Date getValidFrom() {
-		return validFrom;
-	}
-	public void setValidFrom(Date validFrom) {
-		this.validFrom = validFrom;
-	}
-	public Date getValidTo() {
-		return validTo;
-	}
-	public void setValidTo(Date validTo) {
-		this.validTo = validTo;
 	}
 	
 }

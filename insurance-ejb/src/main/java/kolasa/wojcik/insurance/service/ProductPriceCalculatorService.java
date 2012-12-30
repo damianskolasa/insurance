@@ -7,7 +7,7 @@ import kolasa.wojcik.insurance.model.Price;
 import kolasa.wojcik.insurance.model.Product;
 
 @Stateless
-public class ProductPriceCalculator {
+public class ProductPriceCalculatorService {
 
 	
 	public Price calculatePrice(Client client, Product product) {

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="msg" />
+
+			<h1>Informacje zdrowotne</h1>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+				<p:panel header="Podstawowe informacje">
+
+					<h:messages errorClass="error" />
+
+					<p>Prosimy o podanie numeru PESEl, pozwoli nam to sprawdzić czy
+						jest Pan/Pani naszym klientem. Dzięki temu będziemy mogli
+						zaproponować lepsze rozwiązania, oraz lepsze produkty</p>
+
+					<h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+
+						<h:outputText value="PESEL: *" />
+						<p:inputText required="true" label="PESEL"
+							value="#{contractWizardController.pesel}" />
+					</h:panelGrid>
+
+				</p:panel>
+			</h:panelGrid>
+			<p:commandButton value="Dalej"
+				action="#{contractWizardController.submitPesel}" >
+			</p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

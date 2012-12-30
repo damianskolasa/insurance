@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="msg" />
+
+			<h1>Informacje zdrowotne</h1>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:panel header="Podstawowe informacje">
+
+					<h:messages errorClass="error" />
+
+					<h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+
+						<h:outputText value="Imię: *" />
+						<p:inputText required="true" label="Imię"
+							value="#{contractWizardController.client.firstName}" />
+
+						<h:outputText value="Nazwisko: *" />
+						<p:inputText required="true" label="Nazwisko"
+							value="#{contractWizardController.client.lastName}" />
+
+						<h:outputText value="Płeć: *" />
+						<p:selectOneMenu value="#{contractWizardController.client.gender}"
+							effect="fade">
+							<f:selectItems value="#{contractWizardController.genderValues}"
+								var="gender" itemLabel="#{gender.description}"
+								itemValue="#{gender}" />
+						</p:selectOneMenu>
+
+						<h:outputText value="Data urodzenia: *" />
+						<p:calendar value="#{contractWizardController.client.birthDate}" />
+
+						<h:outputText value="Nazwisko panieńskie matki: *" />
+						<p:inputText
+							value="#{contractWizardController.client.mothersMaidenName}" />
+
+						<h:outputText value="NIP: *" />
+						<p:inputMask value="#{contractWizardController.client.nip}"
+							mask="999-999-99-99" />
+
+						<h:outputText value="PESEL: *" />
+						<p:inputText disabled="true" readonly="true"
+							value="#{contractWizardController.client.pesel}" />
+
+						<h:outputText value="Telephone: *" />
+						<p:inputMask value="#{contractWizardController.client.telephone}"
+							mask="+(99) 999 999 999" />
+
+					</h:panelGrid>
+				</p:panel>
+
+			</h:panelGrid>
+			<p:commandButton value="Dalej"
+				action="#{contractWizardController.submitBasicInfo}">
+			</p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

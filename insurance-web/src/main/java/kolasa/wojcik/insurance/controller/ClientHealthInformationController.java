@@ -1,5 +1,6 @@
 package kolasa.wojcik.insurance.controller;
 
+
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
@@ -12,6 +13,8 @@ import kolasa.wojcik.insurance.model.HealthCareData;
 import kolasa.wojcik.insurance.service.HealthCareService;
 import kolasa.wojcik.insurance.service.exception.NoHealthCareDataException;
 
+import org.apache.log4j.Logger;
+
 @Model
 public class ClientHealthInformationController {
 
@@ -19,11 +22,15 @@ public class ClientHealthInformationController {
 	private FacesContext facesContext;
 
 	@Inject
+	private Logger log;
+
+	@Inject
 	private HealthCareService healthCareService;
 
 	@Inject
 	@CurrentClient
 	private Client currentClient;
+	
 
 	private HealthCareData healthCareData = null;
 	private Boolean newClient = false;
@@ -31,10 +38,9 @@ public class ClientHealthInformationController {
 	@Produces
 	@Named
 	public HealthCareData getHealthCareData() {
-		if (healthCareData == null) {
+		if (isHealthCareDataLoaded()) {
 			try {
-				healthCareData = healthCareService
-						.clientHealthCareInformations(currentClient);
+				loadHealthCareDataForCurrentUser();
 			} catch (NoHealthCareDataException e) {
 				createNewHealthCareDataForCurrentClient();
 			}
@@ -42,7 +48,18 @@ public class ClientHealthInformationController {
 		return healthCareData;
 	}
 
+	private boolean isHealthCareDataLoaded() {
+		return healthCareData == null;
+	}
+
+	private void loadHealthCareDataForCurrentUser() {
+		healthCareData = healthCareService
+				.clientHealthCareInformations(currentClient);
+		log.debug("Health care data loaded for current user...");
+	}
+
 	private void createNewHealthCareDataForCurrentClient() {
+		log.debug("No stored health care data, creating a new one...");
 		healthCareData = new HealthCareData();
 		healthCareData.setFirstName(currentClient.getFirstName());
 		healthCareData.setLastName(currentClient.getLastName());
