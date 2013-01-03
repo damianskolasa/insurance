@@ -18,9 +18,8 @@
 				<p:carousel id="carousel"
 					value="#{contractWizardController.availibleProducts}" var="product"
 					headerText="Produkty">
-					<p>ffasddasf</p>
-					<h:outputText value="#{product.name}" />
-
+					<b><h:outputText value="#{product.code}"/> - <h:outputText value="#{product.name}"/></b> 
+						<h:outputText value="#{product.description}"/>
 					<p:commandLink id="view" title="View Detail">
 						<h:outputText styleClass="ui-icon ui-icon-search"
 							style="margin:0 auto;" />

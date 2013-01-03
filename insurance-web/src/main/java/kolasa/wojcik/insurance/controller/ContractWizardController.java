@@ -3,12 +3,10 @@ package kolasa.wojcik.insurance.controller;
 import java.util.Date;
 import java.util.List;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import kolasa.wojcik.insurance.model.Address;
 import kolasa.wojcik.insurance.model.Client;
@@ -114,6 +112,7 @@ public class ContractWizardController {
 	}
 	
 	public String submitProduct() {
+		contract = new Contract();
 		contract.setPrice(calculatedPrice);
 		contract.setHealthCareData(healthCareData);
 		contract.setProduct(selectedProduct);
@@ -221,6 +220,7 @@ public class ContractWizardController {
 
 	public void setSelectedProduct(Product selectedProduct) {
 		this.selectedProduct = selectedProduct;
+		facesContext.addMessage("Wybrano produkt: " + selectedProduct.getName(), null);
 	}
 
 	private ClientInformationDTO createClientInformationDTO() {
