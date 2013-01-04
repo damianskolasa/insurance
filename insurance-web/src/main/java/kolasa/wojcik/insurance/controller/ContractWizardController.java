@@ -1,5 +1,6 @@
 package kolasa.wojcik.insurance.controller;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +29,10 @@ import kolasa.wojcik.insurance.service.exception.NoHealthCareDataException;
 import org.apache.log4j.Logger;
 
 @javax.faces.bean.SessionScoped
-@ManagedBean(name="contractWizardController")
-public class ContractWizardController {
+@ManagedBean(name = "contractWizardController")
+public class ContractWizardController implements Serializable {
+
+	private static final long serialVersionUID = -5863910393374718958L;
 
 	@Inject
 	private FacesContext facesContext;
@@ -93,7 +96,7 @@ public class ContractWizardController {
 		}
 		return "/clientProfile.xhtml";
 	}
-	
+
 	public String submitClientProfile() {
 		if (isHealthCareDataLoaded()) {
 			try {
@@ -104,13 +107,13 @@ public class ContractWizardController {
 		}
 		return "/healthCareInformation.xhtml";
 	}
-	
+
 	public String submitHealthCareInformation() {
 		availibleProducts = productService
 				.findAvailibleProducts(createClientInformationDTO());
 		return "/products.xhtml";
 	}
-	
+
 	public String submitProduct() {
 		contract = new Contract();
 		contract.setPrice(calculatedPrice);
@@ -118,8 +121,8 @@ public class ContractWizardController {
 		contract.setProduct(selectedProduct);
 		contract.setValidFrom(new Date(System.currentTimeMillis()));
 
-		calculatedPrice = productPriceCalculatorService.calculatePrice(
-				client, selectedProduct);
+		calculatedPrice = productPriceCalculatorService.calculatePrice(client,
+				selectedProduct);
 		return "/confirm.xhtml";
 	}
 
@@ -220,7 +223,6 @@ public class ContractWizardController {
 
 	public void setSelectedProduct(Product selectedProduct) {
 		this.selectedProduct = selectedProduct;
-		facesContext.addMessage("Wybrano produkt: " + selectedProduct.getName(), null);
 	}
 
 	private ClientInformationDTO createClientInformationDTO() {

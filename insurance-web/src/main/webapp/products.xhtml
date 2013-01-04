@@ -9,8 +9,8 @@
 <ui:composition template="/WEB-INF/templates/default.xhtml">
 	<ui:define name="content">
 		<h:form>
-			<p:growl id="msg" />
 
+					<p:growl id="msg" />
 			<h1>Informacje zdrowotne</h1>
 
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
@@ -18,20 +18,19 @@
 				<p:carousel id="carousel"
 					value="#{contractWizardController.availibleProducts}" var="product"
 					headerText="Produkty">
+					
 					<b><h:outputText value="#{product.code}"/> - <h:outputText value="#{product.name}"/></b> 
-						<h:outputText value="#{product.description}"/>
-					<p:commandLink id="view" title="View Detail">
-						<h:outputText styleClass="ui-icon ui-icon-search"
-							style="margin:0 auto;" />
-						<f:setPropertyActionListener value="product"
+					<br/><br/>
+					<h:outputText value="#{product.description}"/>
+					<br/><br/>
+					<p:commandLink id="view" value="Wybierz" action="#{contractWizardController.submitProduct}">
+						<f:setPropertyActionListener value="#{product}"
 							target="#{contractWizardController.selectedProduct}" />
 					</p:commandLink>
+					
 				</p:carousel>
 				
 			</h:panelGrid>
-			<p:commandButton value="Dalej"
-				action="#{contractWizardController.submitProduct}" >
-			</p:commandButton>
 		</h:form>
 	</ui:define>
 </ui:composition>
