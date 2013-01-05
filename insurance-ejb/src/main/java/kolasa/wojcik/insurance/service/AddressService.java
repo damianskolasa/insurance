@@ -24,24 +24,6 @@ public class AddressService {
 				.getSingleResult();
 	}
 
-	public Long getAddressId(String province, String city, String street,
-			String buildingNo, String apartmentNo) {
-
-		return null;
-	}
-
-	public List<Address> findProvinces(String provincePattern) {
-		return null;
-	}
-
-	public List<Address> findCities(String cityPattern) {
-		return null;
-	}
-
-	public List<Address> findStreets(String streetPattern) {
-		return null;
-	}
-
 	public List<Address> findMatches(String searchString) {
 		return em
 				.createQuery(

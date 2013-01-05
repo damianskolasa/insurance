@@ -18,8 +18,10 @@ public class ProductService {
 
 	public List<Product> findAvailibleProducts(
 			ClientInformationDTO clientInformation) {
+		
 		TypedQuery<Product> productQuery = em.createQuery(
 				"select p from Product p", Product.class);
+		
 		return productQuery.getResultList();
 	}
 

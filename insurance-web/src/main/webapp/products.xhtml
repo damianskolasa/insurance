@@ -10,27 +10,28 @@
 	<ui:define name="content">
 		<h:form>
 
-					<p:growl id="msg" />
-			<h1>Informacje zdrowotne</h1>
+			<p:growl id="msg" />
+			<h1>Dostępne produkty</h1>
 
-			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:carousel id="carousel"
+				value="#{contractWizardController.availibleProducts}" var="product"
+				headerText="Dostępne produlkty">
 
-				<p:carousel id="carousel"
-					value="#{contractWizardController.availibleProducts}" var="product"
-					headerText="Produkty">
-					
-					<b><h:outputText value="#{product.code}"/> - <h:outputText value="#{product.name}"/></b> 
-					<br/><br/>
-					<h:outputText value="#{product.description}"/>
-					<br/><br/>
-					<p:commandLink id="view" value="Wybierz" action="#{contractWizardController.submitProduct}">
-						<f:setPropertyActionListener value="#{product}"
-							target="#{contractWizardController.selectedProduct}" />
-					</p:commandLink>
-					
-				</p:carousel>
-				
-			</h:panelGrid>
+				<b><h:outputText value="#{product.code}" /> - <h:outputText
+						value="#{product.name}" /></b>
+				<br />
+				<br />
+				<h:outputText value="#{product.description}" />
+				<br />
+				<br />
+				<p:commandLink id="view" value="Wybieram"
+					action="#{contractWizardController.submitProduct}">
+					<f:setPropertyActionListener value="#{product}"
+						target="#{contractWizardController.selectedProduct}" />
+				</p:commandLink>
+
+			</p:carousel>
+
 		</h:form>
 	</ui:define>
 </ui:composition>
