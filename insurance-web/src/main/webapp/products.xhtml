@@ -11,11 +11,12 @@
 		<h:form>
 
 			<p:growl id="msg" />
+			<p:messages></p:messages>
 			<h1>Dostępne produkty</h1>
 
 			<p:carousel id="carousel"
 				value="#{contractWizardController.availibleProducts}" var="product"
-				headerText="Dostępne produlkty">
+				headerText="Dostępne produkty">
 
 				<b><h:outputText value="#{product.code}" /> - <h:outputText
 						value="#{product.name}" /></b>
@@ -24,13 +25,17 @@
 				<h:outputText value="#{product.description}" />
 				<br />
 				<br />
-				<p:commandLink id="view" value="Wybieram"
-					action="#{contractWizardController.submitProduct}">
+				<p:commandLink id="view" value="Wybieram" upadate="@all">
 					<f:setPropertyActionListener value="#{product}"
 						target="#{contractWizardController.selectedProduct}" />
 				</p:commandLink>
 
 			</p:carousel>
+			<br />
+			<br />
+			<p:commandButton value="Dalej"
+				action="#{contractWizardController.submitProduct}" ajax="false">
+			</p:commandButton>
 
 		</h:form>
 	</ui:define>

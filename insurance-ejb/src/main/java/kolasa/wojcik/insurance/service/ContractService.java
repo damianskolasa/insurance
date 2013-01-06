@@ -11,19 +11,20 @@ import kolasa.wojcik.insurance.model.Contract;
 
 @Stateless
 public class ContractService {
-	
+
 	@Inject
 	private EntityManager em;
-	
+
 	public List<Contract> clientContracts(Client client) {
-	
-		return null;
+		return em
+				.createQuery(
+						"select c from Contract c where c.client = :client",
+						Contract.class).setParameter("client", client)
+				.getResultList();
 	}
-	
-	
+
 	public void saveContract(Contract contract) {
 		em.persist(contract);
 	}
-	
 
 }

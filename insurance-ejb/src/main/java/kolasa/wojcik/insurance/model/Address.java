@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Address implements Serializable {
@@ -16,7 +16,7 @@ public class Address implements Serializable {
 	@GeneratedValue
 	private Long id;
 	
-	@JoinColumn(name = "streetId")
+	@ManyToOne
 	private Street street;
 
 	private String building;

@@ -36,7 +36,7 @@ public class AddressService {
 	}
 
 	public void addAddress(Address address) {
-		em.persist(address);
+		em.merge(address);
 	}
 
 	public List<Street> suggestStreets(String pattern) {

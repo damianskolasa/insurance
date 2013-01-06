@@ -11,11 +11,11 @@
 		<h:form>
 			<p:growl id="msg" />
 
-			<h1>Informacje zdrowotne</h1>
+			<h1>Pesel</h1>
 
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-				<p:panel header="Podstawowe informacje">
+				<p:panel header="Pesel">
 
 					<h:messages errorClass="error" />
 
@@ -34,7 +34,7 @@
 				</p:panel>
 			</h:panelGrid>
 			<p:commandButton value="Dalej"
-				action="#{contractWizardController.submitPesel}" >
+				action="#{contractWizardController.submitPesel}" ajax="false">
 			</p:commandButton>
 		</h:form>
 	</ui:define>

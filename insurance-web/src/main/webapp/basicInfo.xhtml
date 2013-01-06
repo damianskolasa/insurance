@@ -13,7 +13,6 @@
 
 			<h1>Informacje zdrowotne</h1>
 
-			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 				<p:panel header="Podstawowe informacje">
 
 					<h:messages errorClass="error" />
@@ -59,9 +58,8 @@
 					</h:panelGrid>
 				</p:panel>
 
-			</h:panelGrid>
 			<p:commandButton value="Dalej"
-				action="#{contractWizardController.submitBasicInfo}">
+				action="#{contractWizardController.submitBasicInfo}" ajax="false">
 			</p:commandButton>
 		</h:form>
 	</ui:define>

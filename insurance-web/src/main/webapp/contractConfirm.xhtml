@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="msg" />
+
+			<h1>Potwierdzenie</h1>
+
+			<p:panel header="Podstawowe informacje">
+
+				<h:panelGrid columns="2" columnClasses="label, value"
+					styleClass="grid">
+
+					<h:outputText value="Imię: *" />
+					<p:inputText required="true" label="Imię"
+						value="#{contractWizardController.client.firstName}" readonly="true"/>
+
+					<h:outputText value="Nazwisko: *" />
+					<p:inputText required="true" label="Nazwisko"
+						value="#{contractWizardController.client.lastName}" readonly="true"/>
+
+					<h:outputText value="Płeć: *" />
+					<p:selectOneMenu value="#{contractWizardController.client.gender}"
+						effect="fade" readonly="true">
+						<f:selectItems value="#{contractWizardController.genderValues}"
+							var="gender" itemLabel="#{gender.description}"
+							itemValue="#{gender}" />
+					</p:selectOneMenu>
+
+					<h:outputText value="Data urodzenia: *" />
+					<p:calendar value="#{contractWizardController.client.birthDate}" readonly="true"/>
+
+					<h:outputText value="Nazwisko panieńskie matki: *" />
+					<p:inputText
+						value="#{contractWizardController.client.mothersMaidenName}" readonly="true"/>
+
+					<h:outputText value="NIP: *" />
+					<p:inputMask value="#{contractWizardController.client.nip}"
+						mask="999-999-99-99" readonly="true"/>
+
+					<h:outputText value="PESEL: *" />
+					<p:inputText disabled="true" readonly="true"
+						value="#{contractWizardController.client.pesel}" />
+
+					<h:outputText value="Telephone: *" />
+					<p:inputMask value="#{contractWizardController.client.telephone}"
+						mask="+(99) 999 999 999" readonly="true"/>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel header="Profil klienta">
+
+				<h:panelGrid columns="2" columnClasses="label, value">
+
+					<h:outputText value="Żonaty/Mężaty?: *" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.married}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Ilość dzieci: " />
+					<p:spinner
+						value="#{contractWizardController.clientProfile.numberOfKids}" readonly="true"/>
+
+					<h:outputText value="Kierowca: " />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.driving}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Dom " />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.house}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Mieszkanie " />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.home}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Wyższe wykształcenie " />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.higherEducation}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Pracujacy " />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.working}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Uczacy sie " />
+					<p:selectBooleanButton
+						value="#{contractWizardController.clientProfile.learning}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel header="Informacje zdrowotne">
+
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+					<h:outputText value="Historia chorób serca ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.heartDisieases}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true">
+					</p:selectBooleanButton>
+
+					<h:outputText value="Cukrzyca ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.diabetes}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true" />
+
+					<h:outputText value="Historia chorób umysłowych w rodzinie ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.mentalIllness}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true" />
+
+					<h:outputText value="Historia nagłych zgonów w rodzinie ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.suddenDeaths}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true" />
+
+					<h:outputText value="Nadwaga ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.overweight}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true"  />
+
+					<h:outputText value="Nadciśnienie ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.hypertension}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true"/>
+
+					<h:outputText value="Choroby przewlekłe ?" />
+					<p:selectBooleanButton
+						value="#{contractWizardController.healthCareData.longTermTreatments}"
+						onLabel="Tak" offLabel="Nie" onIcon="ui-icon-check"
+						offIcon="ui-icon-close" readonly="true"/>
+
+					<h:outputText value="Data ostatniej hospitalizacji: " />
+					<p:calendar
+						value="#{contractWizardController.healthCareData.lastHospitalisation}" readonly="true"/>
+
+					<h:outputText value="Data ostatniej operacji: " />
+					<p:calendar
+						value="#{contractWizardController.healthCareData.lastSurgery}" readonly="true"/>
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel header="Informacje o umowie">
+
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+					<h:outputText value="Produkt: " />
+					<h:panelGroup>
+						<b><h:outputText value="#{contractWizardController.contract.product.code}" /> - <h:outputText
+								value="#{contractWizardController.contract.product.name}" /></b>
+						<br />
+						<br />
+						<h:outputText value="#{contractWizardController.contract.product.description}" />
+						<br />
+					</h:panelGroup>
+
+					<h:outputText value="Koszt:" />
+					<h:outputText value="#{contractWizardController.contract.price.value}" />
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:commandButton value="Zapisz"
+				action="#{contractWizardController.save}" ajax="false"/>
+				<p:commandButton value="Anuluj"
+				action="#{contractWizardController.cancel}" ajax="false"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

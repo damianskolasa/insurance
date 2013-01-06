@@ -33,8 +33,8 @@ public class HealthCareService {
 		}
 	}
 
-	public void save(HealthCareData healthCareData) {
-		em.merge(healthCareData);
-		em.flush();
+	public HealthCareData save(HealthCareData healthCareData) {
+		healthCareData = em.merge(healthCareData);
+		return healthCareData;
 	}
 }

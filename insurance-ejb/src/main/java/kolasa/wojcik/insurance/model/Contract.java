@@ -24,18 +24,20 @@ public class Contract implements Serializable {
 	private String contractNumber;
 	@Temporal(TemporalType.DATE)
 	private Date validFrom;
-	
+
 	@Enumerated(EnumType.STRING)
 	private ValidyPeriod validityPeriod;
 
 	@ManyToOne
+	private Client client;
+
+	@ManyToOne
 	private Product product;
-	
+
 	private Price price;
-	
+
 	@ManyToOne
 	private HealthCareData healthCareData;
-	
 
 	public Contract() {
 	}
@@ -87,13 +89,21 @@ public class Contract implements Serializable {
 	public void setHealthCareData(HealthCareData healthCareData) {
 		this.healthCareData = healthCareData;
 	}
-	
+
 	public Product getProduct() {
 		return product;
 	}
-	
-	 public void setProduct(Product product) {
+
+	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 }

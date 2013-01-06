@@ -8,21 +8,29 @@
 	<title>Insurance</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link
-	href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
-	rel="stylesheet" type="text/css" />
+		href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
+		rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
 
 	<p:layout fullPage="true">
 
-		<p:layoutUnit position="north" size="100" resizable="false" closable="false" collapsible="fale">
+		<p:layoutUnit position="north" size="100" resizable="false"
+			closable="false" collapsible="fale">
 
 			<h:outputText value="Top unit content." />
 		</p:layoutUnit>
 
-		<p:layoutUnit position="west" size="200" 
-			resizable="false" closable="false" collapsible="false">
-			<h:outputText value="west unit content." />
+		<p:layoutUnit position="west" size="200" resizable="false"
+			closable="false" collapsible="false">
+			<h:form>
+				<p:commandLink value="Dodaj umowę" action="/pesel.jsf" ajax="false">
+				</p:commandLink>
+				<br />
+				<p:commandLink value="Pokaż umowy" action="/listContracts.jsf"
+					ajax="false">
+				</p:commandLink>
+			</h:form>
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">

@@ -11,26 +11,28 @@
 		<h:form>
 			<p:growl id="msg" />
 
-			<h1>Informacje zdrowotne</h1>
+			<h1>Adres</h1>
+			<p:panel header="Podstawowe informacje">
+				<h:panelGrid columns="2" style="width: 420px; margin-bottom:10px"
+					cellpadding="5">
+					<h:outputLabel for="street">Adres: </h:outputLabel>
+					<p:autoComplete style="width: 420px;" id="street"
+						value="#{contractWizardController.client.address.street}"
+						completeMethod="#{contractWizardController.suggestStreets}"
+						var="selectedStreet" itemLabel="#{selectedStreet.description}"
+						itemValue="#{selectedStreet}" converter="streetConverter" />
 
-			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-				<h:outputLabel for="street">Adres: </h:outputLabel>
-				<p:autoComplete style="width: 320px;" id="street"
-					value="#{contractWizardController.client.address.street}"
-					completeMethod="#{contractWizardController.suggestStreets}"
-					var="selectedStreet" itemLabel="#{selectedStreet.description}"
-					itemValue="#{selectedStreet}" converter="streetConverter" />
+					<h:outputLabel value="Budynek: " />
+					<h:inputText id="building" label="Budynek"
+						value="#{contractWizardController.client.address.building}" />
 
-				<h:outputLabel value="Budynek: " />
-				<h:inputText id="building" label="Budynek"
-					value="#{contractWizardController.client.address.building}" />
-
-				<h:outputLabel value="Mieszkanie: " />
-				<h:inputText id="apartment" label="Mieszkanie"
-					value="#{contractWizardController.client.address.apartment}" />
-			</h:panelGrid>
+					<h:outputLabel value="Mieszkanie: " />
+					<h:inputText id="apartment" label="Mieszkanie"
+						value="#{contractWizardController.client.address.apartment}" />
+				</h:panelGrid>
+			</p:panel>
 			<p:commandButton value="Dalej"
-				action="#{contractWizardController.submitAddress}" >
+				action="#{contractWizardController.submitAddress}" ajax="false">
 			</p:commandButton>
 		</h:form>
 	</ui:define>

@@ -18,7 +18,7 @@ public class ClientService {
 	private EntityManager em;
 
 	public void registerClient(Client client) {
-		em.persist(client);
+		em.merge(client);
 	}
 
 	public List<Client> listClients() {
@@ -48,5 +48,5 @@ public class ClientService {
 			return clients.get(0);
 		}
 	}
-
+	
 }

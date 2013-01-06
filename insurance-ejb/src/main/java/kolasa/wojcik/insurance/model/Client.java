@@ -3,6 +3,7 @@ package kolasa.wojcik.insurance.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -38,7 +39,7 @@ public class Client implements Serializable {
 	@OneToOne
 	private Address address;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private ClientProfile clientProfile;
 	
 	public Client() {
@@ -135,6 +136,5 @@ public class Client implements Serializable {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
 	
 }

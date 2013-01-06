@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form id="form">
+			<p:growl id="msg" />
+
+			<h1>Umowy klienta</h1>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+				<p:panel header="Pesel">
+
+					<h:messages errorClass="error" />
+
+					<h:panelGrid columns="2" columnClasses="label, value"
+						styleClass="grid">
+
+						<h:outputText value="PESEL: *" />
+						<p:inputText required="true" label="PESEL"
+							value="#{contractListController.pesel}" />
+					</h:panelGrid>
+
+				</p:panel>
+			</h:panelGrid>
+			
+			<p:commandButton value="Pokaż umowy"
+				action="#{contractListController.listForClient}" update="contracts">
+			</p:commandButton>
+			<br />
+			<br />
+			<br />
+			<hr/>
+
+			<p:dataTable id="contracts" var="contract" value="#{contractListController.contracts}" >
+
+				<p:column headerText="Klient" style="width:32%">
+					<h:outputText value="#{contract.client.firstName}" />&nbsp;<h:outputText value="#{contract.client.lastName}" />
+					<br/>
+					<b>Telefon: <h:outputText value="#{contract.client.telephone}" /></b>
+					<br/>
+					
+				</p:column>
+
+				<p:column headerText="Produkt" style="width:32%">
+					<h:outputText value="#{contract.product.name}" />
+				</p:column>
+
+				<p:column headerText="Umowa" style="width:32%">
+					Cena: <h:outputText value="#{contract.price.value}" /> zł.
+					<br/>
+					Okres obowiązywania: <h:outputText value="#{contract.validityPeriod.description}" />
+				</p:column>
+
+				<p:column style="width:4%">
+					<p:commandButton id="selectButton" update=":form:display"
+						oncomplete="carDialog.show()" icon="ui-icon-search" title="View">
+						<f:setPropertyActionListener value="#{contract}"
+							target="#{contractListController.selectedContract}" />
+					</p:commandButton>
+				</p:column>
+
+			</p:dataTable>
+
+			<p:dialog header="Szczegóły" widgetVar="carDialog" resizable="false"
+				id="carDlg" showEffect="fade" hideEffect="explode" modal="false">
+
+				<h:panelGrid id="display" columns="2" cellpadding="4"
+					style="margin:0 auto;">
+
+					
+					<h:outputText value="Model:" />
+					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
+						style="font-weight:bold" />
+
+					<h:outputText value="Year:" />
+					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
+						style="font-weight:bold" />
+
+
+					<h:outputText value="Manufacturer:" />
+					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
+						style="font-weight:bold" />
+
+					<h:outputText value="Color:" />
+					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
+						style="font-weight:bold" />
+
+				</h:panelGrid>
+
+			</p:dialog>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

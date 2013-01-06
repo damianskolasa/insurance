@@ -19,8 +19,10 @@ import kolasa.wojcik.insurance.model.HealthCareData;
 import kolasa.wojcik.insurance.model.Price;
 import kolasa.wojcik.insurance.model.Product;
 import kolasa.wojcik.insurance.model.Street;
+import kolasa.wojcik.insurance.model.ValidyPeriod;
 import kolasa.wojcik.insurance.service.AddressService;
 import kolasa.wojcik.insurance.service.ClientService;
+import kolasa.wojcik.insurance.service.ContractService;
 import kolasa.wojcik.insurance.service.HealthCareService;
 import kolasa.wojcik.insurance.service.ProductPriceCalculatorService;
 import kolasa.wojcik.insurance.service.ProductService;
@@ -56,28 +58,29 @@ public class ContractWizardController implements Serializable {
 	private ProductPriceCalculatorService productPriceCalculatorService;
 
 	@Inject
-	@CurrentClient
-	private Client currentClient;
+	private ContractService contractService;
 
 	private HealthCareData healthCareData = null;
-	private Client client = new Client();
+	private Client client = null;
 	private ClientProfile clientProfile = null;
 	private Contract contract = null;
 
 	private List<Product> availibleProducts = null;
 
-	private String pesel;
+	private String pesel = null;
 
 	private Price calculatedPrice = null;
 
 	private Product selectedProduct = null;
 
 	public String submitPesel() {
-		client = clientService.findClientByPESEL(pesel);
 		if (client == null) {
-			client = new Client();
-			client.setGender(Gender.MALE);
-			client.setPesel(pesel);
+			client = clientService.findClientByPESEL(pesel);
+			if (client == null) {
+				client = new Client();
+				client.setGender(Gender.MALE);
+				client.setPesel(pesel);
+			}
 		}
 		return "/basicInfo.xhtml";
 	}
@@ -116,14 +119,16 @@ public class ContractWizardController implements Serializable {
 
 	public String submitProduct() {
 		contract = new Contract();
-		contract.setPrice(calculatedPrice);
+		contract.setClient(client);
 		contract.setHealthCareData(healthCareData);
 		contract.setProduct(selectedProduct);
 		contract.setValidFrom(new Date(System.currentTimeMillis()));
+		contract.setValidityPeriod(ValidyPeriod.YEAR);
 
 		calculatedPrice = productPriceCalculatorService.calculatePrice(client,
 				selectedProduct);
-		return "/confirm.xhtml";
+		contract.setPrice(calculatedPrice);
+		return "/contractConfirm.xhtml";
 	}
 
 	public HealthCareData getHealthCareData() {
@@ -140,7 +145,7 @@ public class ContractWizardController implements Serializable {
 
 	private void loadHealthCareDataForCurrentUser() {
 		healthCareData = healthCareService
-				.clientHealthCareInformations(currentClient);
+				.clientHealthCareInformations(client);
 		log.debug("Health care data loaded for current user...");
 	}
 
@@ -186,16 +191,36 @@ public class ContractWizardController implements Serializable {
 
 	public String save() {
 		try {
+			addressService.addAddress(client.getAddress());
+
+			healthCareData = healthCareService.save(contract.getHealthCareData());
+			contract.setHealthCareData(healthCareData);
+			
+			client.setClientProfile(clientProfile);
 			clientService.registerClient(client);
 
-			healthCareService.save(healthCareData);
+			contractService.saveContract(contract);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error registering contract", e);
 			facesContext.addMessage(null, new FacesMessage(
 					"Błąd aktualizacji danych!!"));
+			return null;
+
 		}
-		return null;
+		return "/contractOk.xhtml";
+	}
+	
+	public String cancel() {
+		healthCareData = null;
+		client = null;
+		clientProfile = null;
+		contract = null;
+		availibleProducts = null;
+		pesel = null;
+		calculatedPrice = null;
+		selectedProduct = null;
+		return "/pesel.xhtml";
 	}
 
 	public Gender[] getGenderValues() {
