@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+
+			<p:growl id="msg" />
+			<p:messages />
+			<h1>Dostępne produkty</h1>
+			
+			<p:commandButton value="Pokaż produkty"
+				action="#{productListerController.showProducts}" update="carousel">
+			</p:commandButton>
+
+			<p:carousel id="carousel"
+				value="#{contractWizardController.availibleProducts}" var="product"
+				headerText="Dostępne produkty">
+
+				<b><h:outputText value="#{product.code}" /> - <h:outputText
+						value="#{product.name}" /></b>
+				<br />
+				<br />
+				<h:outputText value="#{product.description}" />
+				<br />
+				<br />
+				<p:commandLink id="view" value="Wybieram" upadate="@all">
+					<f:setPropertyActionListener value="#{product}"
+						target="#{contractWizardController.selectedProduct}" />
+				</p:commandLink>
+
+			</p:carousel>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
