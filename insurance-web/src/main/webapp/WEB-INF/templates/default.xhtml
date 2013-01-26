@@ -7,9 +7,7 @@
 <h:head>
 	<title>Insurance</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link
-		href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
-		rel="stylesheet" type="text/css" />
+	<h:outputStylesheet name="css/style.css" />
 </h:head>
 <h:body>
 
@@ -18,7 +16,14 @@
 		<p:layoutUnit position="north" size="100" resizable="false"
 			closable="false" collapsible="fale">
 
-			<h:outputText value="Top unit content." />
+			<div id="header_title">
+				<div id="header_title_p">
+					<h:outputText value="insurance" />
+				</div>
+				<div id="header_title_s">
+					<h:outputText value="ubezpieczneia na życie, i zdrowie" />
+				</div>
+			</div>
 		</p:layoutUnit>
 
 		<p:layoutUnit position="west" size="200" resizable="false"

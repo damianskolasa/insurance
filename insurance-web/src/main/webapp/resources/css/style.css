@@ -15,3 +15,118 @@
     font: 14px "Lucida Console", Monaco, monospace;
     letter-spacing: -1px;
 }
+
+
+.ui-widget-header{
+	background: none;
+	border: none;
+	display:none;
+}
+
+body, .ui-layout-unit, .ui-layout-unit-content{
+	margin: 0;
+	padding: 0;
+	background: #F8F5EC;
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 12px;
+	color: #A19D9A;
+	border: none;
+}
+
+.ui-layout-north .ui-layout-unit-content, .ui-layout-pane-north .ui-layout-unit-content{
+	background: #3C3230;
+	border-bottom: 10px solid #4F4440;
+	height: 100px;
+}
+
+.ui-layout-north #header_title #header_title_p{
+	margin: 0;
+	padding: 0;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	font-size: 3.8em;
+	padding: 0px 0 0 2px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.ui-layout-north #header_title #header_title_s{
+	margin: 0;
+	padding: 0;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	padding: 0px 0 0 2px;
+	font: normal 14px Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.ui-layout-north #header_title{
+ margin-left: 200px;
+}
+
+h1, h2, h3 {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-weight: normal !important;
+	color: #3E3530 !important;
+}
+
+h1 {
+	font-size: 2em !important;
+}
+
+h2 {
+	font-size: 2.8em !important;
+}
+
+h3 {
+	font-size: 1.6em !important;
+}
+
+label{
+	margin-bottom: 10px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+#search-text, input[type='text']{
+	width: 170px;
+	padding: 6px 5px 2px 5px;
+	border: 1px solid #DEDEDE;
+	background: #FFFFFF;
+	text-transform: lowercase;
+	font: normal 11px Arial, Helvetica, sans-serif;
+	color: #5D781D;
+}
+
+#search-submit, input[type='submit']{
+	height: 22px;
+	border: none;
+	background-color: #B9B9B9 !important;
+	color: #000000;
+}
+
+input[type='submit']:hover{
+ color: #fff;
+}
+
+a{
+	display: block;
+	font-weight: bold;
+	border: none;
+	color: #A19D9A;
+	text-decoration: none;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #E7E2DC;
+	margin: 0px 10px;
+}
+
+.ui-layout-west a:hover{
+	margin-left: 3px;
+}

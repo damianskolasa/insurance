@@ -9,16 +9,12 @@
 		in META-INF/persistence.xml -->
 	<datasource jndi-name="java:jboss/datasources/insuranceDS"
 		pool-name="insurance" enabled="true" use-java-context="true">
-		<connection-url>jdbc:mysql://localhost:3306/insurance</connection-url> 
-			<driver>mysql-connector-java-5.1.22.jar</driver> <security> <user-name>liferay</user-name> 
-			<password>liferay</password> </security>
-
-		<!--  <connection-url>jdbc:oracle:thin:@localhost:1521:xe</connection-url>
-		<driver>ojdbc6.jar</driver>
+		<connection-url>${jdbc.url}</connection-url>
+		<driver>${jdbc.driver}</driver>
 		<security>
-			<user-name>dk</user-name>
-			<password>admin123</password>
-		</security>-->
+			<user-name>${jdbc.username}</user-name>
+			<password>${jdbc.password}</password>
+		</security>
 	</datasource>
 </datasources>
  
