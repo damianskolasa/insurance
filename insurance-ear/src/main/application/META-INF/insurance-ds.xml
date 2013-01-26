@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This is an unmanaged datasource. It should be used for proofs of concept 
-   or testing only. It uses H2, an in memory database that ships with JBoss 
-   AS. -->
+	or testing only. It uses H2, an in memory database that ships with JBoss 
+	AS. -->
 <datasources xmlns="http://www.jboss.org/ironjacamar/schema"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
-   <!-- The datasource is bound into JNDI at this location. We reference 
-      this in META-INF/persistence.xml -->
-   <datasource jndi-name="java:jboss/datasources/insuranceDS"
-      pool-name="insurance" enabled="true"
-      use-java-context="true">
-      <!--  <connection-url>jdbc:mysql://localhost:3306/insurance</connection-url>
-      <driver>mysql-connector-java-5.1.22.jar</driver>
-      <security>
-         <user-name>liferay</user-name>
-         <password>liferay</password>
-      </security>
-      -->
-      
-       <connection-url>jdbc:h2:mem:insurance1;DB_CLOSE_DELAY=-1</connection-url>
-      <driver>h2</driver>
-      <security>
-         <user-name>sa</user-name>
-         <password>sa</password>
-      </security>
-   </datasource>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+	<!-- The datasource is bound into JNDI at this location. We reference this 
+		in META-INF/persistence.xml -->
+	<datasource jndi-name="java:jboss/datasources/insuranceDS"
+		pool-name="insurance" enabled="true" use-java-context="true">
+		<connection-url>jdbc:mysql://localhost:3306/insurance</connection-url> 
+			<driver>mysql-connector-java-5.1.22.jar</driver> <security> <user-name>liferay</user-name> 
+			<password>liferay</password> </security>
+
+		<!--  <connection-url>jdbc:oracle:thin:@localhost:1521:xe</connection-url>
+		<driver>ojdbc6.jar</driver>
+		<security>
+			<user-name>dk</user-name>
+			<password>admin123</password>
+		</security>-->
+	</datasource>
 </datasources>
  
