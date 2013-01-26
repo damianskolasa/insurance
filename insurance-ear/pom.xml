@@ -4,7 +4,7 @@
 
    <parent>
       <artifactId>insurance</artifactId>
-      <groupId>kolasa.wojcik</groupId>
+      <groupId>pl</groupId>
       <version>0.0.1-SNAPSHOT</version>
    </parent>
 
@@ -17,12 +17,12 @@
 
       <!-- Depend on the ejb module and war so that we can package them -->
       <dependency>
-         <groupId>kolasa.wojcik</groupId>
+         <groupId>pl</groupId>
          <artifactId>insurance-web</artifactId>
          <type>war</type>
       </dependency>
       <dependency>
-         <groupId>kolasa.wojcik</groupId>
+         <groupId>pl</groupId>
          <artifactId>insurance-ejb</artifactId>
          <type>ejb</type>
       </dependency>
