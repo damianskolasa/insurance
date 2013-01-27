@@ -18,10 +18,10 @@
 
 			<div id="header_title">
 				<div id="header_title_p">
-					<h:outputText value="insurance" />
+					<h:outputText value="Insurance" />
 				</div>
 				<div id="header_title_s">
-					<h:outputText value="ubezpieczneia na życie, i zdrowie" />
+					<h:outputText value="Ubezpieczneia na zycie, i zdrowie" />
 				</div>
 			</div>
 		</p:layoutUnit>
@@ -29,12 +29,9 @@
 		<p:layoutUnit position="west" size="200" resizable="false"
 			closable="false" collapsible="false">
 			<h:form>
-				<p:commandLink value="Dodaj umowę" action="/pesel.jsf" ajax="false">
-				</p:commandLink>
+				<a href="#{request.contextPath}/pesel.jsf">Dodaj umowę </a>
 				<br />
-				<p:commandLink value="Pokaż umowy" action="/listContracts.jsf"
-					ajax="false">
-				</p:commandLink>
+				<a href="#{request.contextPath}/listContracts.jsf">Pokaż umowy </a>
 			</h:form>
 		</p:layoutUnit>
 
