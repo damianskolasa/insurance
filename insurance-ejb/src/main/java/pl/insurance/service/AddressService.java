@@ -36,8 +36,8 @@ public class AddressService {
 
 	}
 
-	public void addAddress(Address address) {
-		em.merge(address);
+	public Address addAddress(Address address) {
+		return em.merge(address);
 	}
 
 	public List<Street> suggestStreets(String pattern) {

@@ -192,13 +192,13 @@ public class ContractWizardController implements Serializable {
 
 	public String save() {
 		try {
-			addressService.addAddress(client.getAddress());
+			client.setAddresses(addressService.addAddress(client.getAddress()));
 
 			healthCareData = healthCareService.save(contract.getHealthCareData());
 			contract.setHealthCareData(healthCareData);
 			
 			client.setClientProfile(clientProfile);
-			clientService.registerClient(client);
+			contract.setClient(clientService.registerClient(client));
 
 			contractService.saveContract(contract);
 

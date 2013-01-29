@@ -18,8 +18,8 @@ public class ClientService {
 	@Inject
 	private EntityManager em;
 
-	public void registerClient(Client client) {
-		em.merge(client);
+	public Client registerClient(Client client) {
+		return em.merge(client);
 	}
 
 	public List<Client> listClients() {

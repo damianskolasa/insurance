@@ -29,23 +29,25 @@
 
 				</p:panel>
 			</h:panelGrid>
-			
+
 			<p:commandButton value="Pokaż umowy"
 				action="#{contractListController.listForClient}" update="contracts">
 			</p:commandButton>
 			<br />
 			<br />
 			<br />
-			<hr/>
+			<hr />
 
-			<p:dataTable id="contracts" var="contract" value="#{contractListController.contracts}" >
+			<p:dataTable id="contracts" var="contract"
+				value="#{contractListController.contracts}">
 
 				<p:column headerText="Klient" style="width:32%">
-					<h:outputText value="#{contract.client.firstName}" />&nbsp;<h:outputText value="#{contract.client.lastName}" />
-					<br/>
+					<h:outputText value="#{contract.client.firstName}" />&nbsp;<h:outputText
+						value="#{contract.client.lastName}" />
+					<br />
 					<b>Telefon: <h:outputText value="#{contract.client.telephone}" /></b>
-					<br/>
-					
+					<br />
+
 				</p:column>
 
 				<p:column headerText="Produkt" style="width:32%">
@@ -54,8 +56,9 @@
 
 				<p:column headerText="Umowa" style="width:32%">
 					Cena: <h:outputText value="#{contract.price.value}" /> zł.
-					<br/>
-					Okres obowiązywania: <h:outputText value="#{contract.validityPeriod.description}" />
+					<br />
+					Okres obowiązywania: <h:outputText
+						value="#{contract.validityPeriod.description}" />
 				</p:column>
 
 				<p:column style="width:4%">
@@ -74,23 +77,40 @@
 				<h:panelGrid id="display" columns="2" cellpadding="4"
 					style="margin:0 auto;">
 
-					
-					<h:outputText value="Model:" />
-					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
-						style="font-weight:bold" />
+					<h:outputText style="font-weight:bold" value="Imię: " />
+					<h:outputText label="Imię"
+						value="#{contractListController.selectedContract.client.firstName}" />
 
-					<h:outputText value="Year:" />
-					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
-						style="font-weight:bold" />
+					<h:outputText style="font-weight:bold" value="Nazwisko: " />
+					<h:outputText label="Nazwisko"
+						value="#{contractListController.selectedContract.client.lastName}" />
 
+					<h:outputText style="font-weight:bold" value="Płeć: " />
+					<h:outputText
+						value="#{contractListController.selectedContract.client.gender.description}" />
 
-					<h:outputText value="Manufacturer:" />
-					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
-						style="font-weight:bold" />
+					<h:outputText style="font-weight:bold" value="Data urodzenia: " />
+					<h:outputText
+						value="#{contractListController.selectedContract.client.birthDate}">
+						<f:convertDateTime pattern="dd-MM-yyyy" />
+					</h:outputText>
 
-					<h:outputText value="Color:" />
-					<h:outputText value="#{contractListController.selectedContract.client.firstName}"
-						style="font-weight:bold" />
+					<h:outputText style="font-weight:bold"
+						value="Nazwisko panieńskie matki: " />
+					<h:outputText
+						value="#{contractListController.selectedContract.client.mothersMaidenName}" />
+
+					<h:outputText style="font-weight:bold" value="NIP: " />
+					<h:outputText
+						value="#{contractListController.selectedContract.client.nip}" />
+
+					<h:outputText style="font-weight:bold" value="PESEL: " />
+					<h:outputText
+						value="#{contractListController.selectedContract.client.pesel}" />
+
+					<h:outputText style="font-weight:bold" value="Telephone: " />
+					<h:outputText
+						value="#{contractListController.selectedContract.client.telephone}" />
 
 				</h:panelGrid>
 

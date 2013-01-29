@@ -53,7 +53,6 @@ body, .ui-layout-unit, .ui-layout-unit-content{
 	margin: 0;
 	padding: 0;
 	letter-spacing: -1px;
-	text-transform: lowercase;
 	padding: 0px 0 0 2px;
 	font: normal 14px Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
@@ -99,7 +98,6 @@ label{
 	padding: 6px 5px 2px 5px;
 	border: 1px solid #DEDEDE;
 	background: #FFFFFF;
-	text-transform: lowercase;
 	font: normal 11px Arial, Helvetica, sans-serif;
 	color: #5D781D;
 }
