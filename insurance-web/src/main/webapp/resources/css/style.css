@@ -127,3 +127,5 @@ a{
 .ui-layout-west a:hover{
 	margin-left: 3px;
 }
+
+.ui-datepicker{width:300px !important;}
